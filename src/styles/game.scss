@@ -1,0 +1,157 @@
+@import './colors.scss';
+
+.header {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem 3rem 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+    font-size: 1.5rem;
+}
+.popup, .winScreen {
+    position: absolute;
+    z-index: 100;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+
+    backdrop-filter: blur(15px);
+    text-transform: capitalize;
+    &_header {font-size: 3rem; font-weight: 500;}
+
+    form, .winScreen_container {
+        max-width: 95%;
+        height: 40rem;
+        width: 50rem;
+        padding: 3rem 2rem;
+        border: 5px solid $neon-blue;
+        box-shadow: 0px 5px 15px rgba($neon-blue, 0.5);
+        text-shadow: 1px 0px 3px rgba($neon-purple, 0.5);
+        color: $neon-purple;
+
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 2rem;
+    }
+
+    &_icon {
+        position: relative;
+        transition: all 0.1s ease-in;
+        display: inline-block;
+
+        height: 10rem;
+        width: 10rem;
+        margin: 1rem 1.2rem 0;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 6rem;
+        }
+
+        &:hover {
+            border: 2px solid rgba($neon-blue, 0.8);
+            box-shadow: 0px 3px 3px rgba($neon-blue, 0.5);
+        }
+        &.o:hover {
+            border: 2px solid rgba($neon-purple, 0.8);
+            box-shadow: 0px 3px 3px rgba($neon-purple, 0.5);
+        }
+    }
+    input:checked + &_icon {
+        border: 2px solid rgba($neon-blue, 0.7);
+        box-shadow: 0px 3px 5px rgba($neon-blue, 0.5);
+        color: $neon-purple;
+    }
+
+    &_box {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    &_textBox {
+        display: block;
+        border: none;
+        background: none;
+        margin-top: 1rem;
+        outline: none;
+
+        font-size: 2.1rem;
+        text-align: center;
+        color: $neon-purple;
+    
+        &::placeholder {color: rgba($white, 0.5);}
+
+        &:focus {
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+}
+.board {
+    display: grid;
+    grid-gap: 1rem;
+    aspect-ratio: 1 / 1;
+    max-height: 85vh;
+    max-width: 95%;
+    margin: 3rem auto 2rem;
+}
+
+.block {
+    transition: 0.1s ease-in;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 1rem;
+    border: 3px solid $neon-blue;
+    box-shadow: 1px 3px 5px rgba($neon-blue, 0.5);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+        border: 3px solid $neon-purple;
+        box-shadow: 1px 3px 5px rgba($neon-purple, 0.5);
+    }
+    img {
+        height: 50%;
+    }
+}
+
+.reminder {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    border-bottom: 1px solid #FF1700;
+    color: #FF1700;
+}
+
+.winScreen {
+    backdrop-filter: none;
+    &_container {
+        background-color: rgba($black, 0.9);
+        height: 20rem !important;
+    }
+    &_header {
+        font-size: 3rem;
+    }
+}

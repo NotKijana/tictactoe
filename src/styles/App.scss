@@ -1,0 +1,15 @@
+@import './buttons.scss';
+@import './game.scss';
+@import './colors.scss';
+.App {
+    min-height: 100vh;
+    position: relative;
+}
+.hidden {
+    display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,10 @@
+export const SET_BOARD = 'SET_BOARD';
+export const RESET_GAME = 'RESET_GAME';
+export const SET_PLAYERS = 'SET_PLAYERS';
+export const SET_PLAYER_TURN = 'SET_PLAYER_TURN';
+export const GET_PLAYER_TURN = 'GET_PLAYER_TURN';
+export const SET_WINNER = 'SET_WINNER';
+export const SET_GAMESTART = 'SET_GAMESTART';
+export const CREATE_WIN_CONDITIONS = 'CREATE_WIN_CONDITIONS';
+export const SET_BOARD_VALUES = 'SET_BOARD_VALUES';
+export const CHECK_WINNER = 'CHECK_WINNER';
