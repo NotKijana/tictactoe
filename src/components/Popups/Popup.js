@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import GameContext from "../context/game/GameContext";
-import iconX from '../assets/icon-X.svg';
-import icon0 from '../assets/icon-O.svg';
+import GameContext from "../../context/game/GameContext";
+import iconX from '../../assets/icon-X.svg';
+import icon0 from '../../assets/icon-O.svg';
 
 const Popup = () => {
     const gameContext = useContext(GameContext);
@@ -25,38 +25,47 @@ const Popup = () => {
     }
     const handleChange = event => {
         const boardSize = event.target.value;
-        setBoard(boardSize);
+        if(boardSize > 12) {
+            setError(true);
+        } else {
+            setError(false);
+            setBoard(boardSize);
+        }
     }
     return (
-        <div className={"popup " + (isGameStart && 'hidden')}>
+        <div className={"popup txt-purple " + (isGameStart && 'hidden')}>
             <form>
-                <h3 className="popup_header">Player One X's or O's?</h3>
+                <h2 className="popup_header txt-xl">Choose Player 1:</h2>
                 <div>
                     <input type="radio" name="playerOneChoice" id="input_X" 
-                    value='X' className="hidden" onClick={e => handleClick(e)} />
+                        value='X' className="hidden" onClick={e => handleClick(e)} />
                     <label className="popup_icon" htmlFor="input_X">
                         <img src={iconX}  alt='Player X Icon'/>
                     </label>                
 
                     <input type="radio" name="playerOneChoice" id="input_O" 
-                    value='O' className="hidden" onClick={e => handleClick(e)} />
+                        value='O' className="hidden" onClick={e => handleClick(e)} />
                     <label className="popup_icon o" htmlFor="input_O">
                         <img src={icon0}  alt='Player O Icon'/>    
                     </label>      
                 </div>         
 
-                <div className="popup_box" >
+                <div className="popup_box txt-l" >
                     <label htmlFor="input_board">Enter grid width: {' '}</label>
                     <input type="number" name="boardDimensions" id="input_board" 
-                    className="popup_textBox" placeholder="Minimum: 3"
-                    min='3' onChange={e => handleChange(e)}/>
+                        className="popup_textBox txt-l txt-purple txt_w--500" 
+                        placeholder="Min: 3 Max: 12"
+                        min='3' max='12' onChange={e => handleChange(e)}
+                    />
                 </div>
 
-                <button type="button" className="button" onClick={() => checkInputs()}>
+                <button type="button" className="button txt-l txt-purple hover"
+                    onClick={() => checkInputs()}
+                >
                     Start Game
                 </button>
 
-                {error && <p className="reminder">Please select all options</p>}
+                {error && <p className="reminder">Please Check All Responses</p>}
             </form>
         </div>
     )

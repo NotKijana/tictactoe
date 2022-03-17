@@ -25,6 +25,9 @@ const GameState = props => {
     // Set Board
     const setBoard = (boardDimension) => {
         const newBoard = [];
+        if(boardDimension > 12) {
+            return;
+        }
         for(let i = 1; i <= boardDimension; i++) {
             for(let j = 1; j <= boardDimension; j++) {
                 newBoard.push(j);

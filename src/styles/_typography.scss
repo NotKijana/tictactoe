@@ -1,0 +1,30 @@
+
+input::placeholder { color: rgba($white, 0.5); }
+
+.txt {
+    &-center {text-align: center;}
+    // Text Sizing
+    &-sm { font-size: 1.2rem; }
+    &-med { font-size: 1.5rem; }
+    &-l { font-size: 2rem; }
+    &-xl { font-size: 2.5rem; }
+    &_w--500 {font-weight: 500;}
+    // Text Colors
+    &-purple {
+        color: $neon-purple;
+        text-shadow: 0px 0px 4px rgba($neon-purple, 0.5);
+        &.hover {
+            @include borderHidden;
+            &:hover { @include borderPurple; }
+        }
+    }
+    &-blue {
+        color: $neon-blue;
+        text-shadow: 0px 0px 4px rgba($neon-blue, 0.5);
+        &.hover {
+            @include borderHidden;
+            &:hover { @include borderBlue; }
+        }
+    }
+}
+

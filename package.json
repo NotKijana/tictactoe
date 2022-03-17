@@ -1,6 +1,6 @@
 {
   "name": "tictactoe",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "homepage": "https://nothero.co",
   "dependencies": {
@@ -38,9 +38,9 @@
   },
   "description": "A local tictactoe game",
   "main": "index.js",
-  "devDependencies": {
-    "node-sass": "^7.0.1"
-  },
   "author": "Probably KJ",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.49.9"
+  }
 }

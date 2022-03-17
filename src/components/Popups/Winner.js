@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import GameContext from '../context/game/GameContext';
-import Reset from './Reset';
+import GameContext from '../../context/game/GameContext';
+import Reset from '../BoardContainer/Reset';
 
 const Winner = () => {
     const gameContext = useContext(GameContext);
@@ -14,10 +14,10 @@ const Winner = () => {
     }, [boardValues]);
     
     return (
-        <section className={(winner ? 'winScreen': 'hidden')}> 
+        <section className={'txt-purple txt-xl ' + (winner ? 'winScreen': 'hidden')}> 
             <div className='winScreen_container'>
                 <h2 className='winScreen_header'>{ winnerMessage }</h2>
-                <Reset icon='Play Again'/>
+                <Reset type='refresh txt-xl txt-purple hover' icon='Play Again'/>
             </div>
         </section>
     )
